@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <DonationCover @imageChanged="setImage"></DonationCover>
+        <PodcastCover @imageChanged="setImage"></PodcastCover>
 
         <InputLayout
-            title="Donation title"
-            placeholder="Donation title"
+            title="Podcast title"
+            placeholder="Podcast title"
             class="w-100"
             v-model="title"
         ></InputLayout>
@@ -13,7 +13,7 @@
             title="Sum in rubles"
             placeholder="How much to collect"
             class="w-100"
-            v-model="donationAll"
+            v-model="podcastAll"
             type="number"
         ></InputLayout>
 
@@ -46,14 +46,14 @@
         <Button
             title="Continue"
             class="w-100"
-            @click.native="addDonation"
+            @click.native="addPodcast"
         ></Button>
     </div>
 </template>
 <script>
-    import InputLayout from "../components/addDonation/InputLayout"
+    import InputLayout from "../components/addPodcast/InputLayout"
     import eventBus from "../eventBus"
-    import DonationCover from "../components/addDonation/DonationCover"
+    import PodcastCover from "../components/addPodcast/PodcastCover"
     import Button from "../components/common/BottomButton"
 
     export default {
@@ -61,17 +61,17 @@
 
         components: {
             InputLayout,
-            DonationCover,
+            PodcastCover,
             Button
         },
         created() {
-            eventBus.setPageTitle("Target donation")
+            eventBus.setPageTitle("Target podcast")
         },
         data() {
             return {
                 image: null,
                 title: null,
-                donationAll: null,
+                podcastAll: null,
                 goal: null,
                 description: null,
                 bill: "VK Pay · 1234",
@@ -82,13 +82,13 @@
             setImage(newImage) {
                 this.image = newImage
             },
-            addDonation() {
-                const donation = {
+            addPodcast() {
+                const podcast = {
                     title: this.title,
-                    donationAll: this.donationAll,
-                    donationReal: Math.floor(this.donationAll / 2),
+                    podcastAll: this.podcastAll,
+                    podcastReal: Math.floor(this.podcastAll / 2),
                     goal: this.goal,
-                    donationText: this.description,
+                    podcastText: this.description,
                     subTitle: "Помощь нужна каждый день",
                     progressTitle: 'В сентябре собрано: ',
                     bill: this.bill,
@@ -97,7 +97,7 @@
 
                 const image = this.image
 
-                this.$store.dispatch("uploadDonation", { image, donation })
+                this.$store.dispatch("uploadPodcast", { image, podcast })
             }
         }
     }

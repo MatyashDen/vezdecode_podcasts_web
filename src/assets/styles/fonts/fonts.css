@@ -17,3 +17,8 @@
     font-family: "TTCommons-DemiBold";
     src: url('./TTCommons-DemiBold.ttf');
 }
+
+@font-face {
+    font-family: "SFProDisplay-Semibold";
+    src: url('./SFProDisplay-Semibold.ttf');
+}

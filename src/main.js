@@ -13,8 +13,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import { BootstrapVue } from 'bootstrap-vue'
 
-axios.defaults.baseURL = "http://161.35.21.226:3000/api/web/"
-
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 

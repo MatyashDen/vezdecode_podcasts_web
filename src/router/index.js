@@ -1,52 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Donations from '../views/Donations'
-import DonationType from "../views/DonationType"
-import Feed from "../views/Feed"
-import AddDonation from "../views/AddDonation"
-import Donation from "../views/Donation";
+import Podcasts from '../views/Podcasts'
+import AddPodcast from "../views/AddPodcast"
 
 Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/donations',
-        name: 'Donations',
+        path: '/podcasts',
+        name: 'Podcasts',
         components: {
-            'content': Donations
+            'content': Podcasts
         }
     },
     {
-        path: "/donation-type",
-        name: "DonationType",
+        path: "/add-podcast",
+        name: "AddPodcast",
         components: {
-            'content': DonationType
-        }
-    },
-    {
-        path: "/feed",
-        name: "Feed",
-        components: {
-            'content': Feed
-        }
-    },
-    {
-        path: "/add-donation",
-        name: "AddDonation",
-        components: {
-            'content': AddDonation
-        }
-    },
-    {
-        path: "/donation/:id",
-        name: "Donation",
-        components: {
-            'content': Donation
+            'content': AddPodcast
         }
     },
     {
         path: '*',
-        redirect: { name: 'Feed' }
+        redirect: { name: 'Podcasts' }
     }
 ]
 

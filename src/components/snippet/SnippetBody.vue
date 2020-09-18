@@ -1,20 +1,20 @@
 <template>
     <div class="mx-2">
-        <div class="goal mb-1">{{ donationModel.goal }}</div>
+        <div class="goal mb-1">{{ podcastModel.goal }}</div>
         <div
             class="snippet-body"
             :style="{
-                background: `url(${donationModel.imgPath}`,
+                background: `url(${podcastModel.imgPath}`,
                 backgroundSize: 'contain',
             }"
         >
             <div class="snippet-info">
                 <snippet-title
-                    :title="donationModel.title"
-                    :sub-title="`${donationModel.author} · ${donationModel.subTitle}`"
+                    :title="podcastModel.title"
+                    :sub-title="`${podcastModel.author} · ${podcastModel.subTitle}`"
                 />
                 <hr />
-                <snippet-progress :donation-model="donationModel" />
+                <snippet-progress :podcast-model="podcastModel" />
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
     export default {
         name: "SnippetBody",
         props: {
-            donationModel: {
+            podcastModel: {
                 type: Object,
                 required: true
             }

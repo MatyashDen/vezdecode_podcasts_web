@@ -1,7 +1,7 @@
 <template>
     <div class="snippet-progress">
         <vk-progress
-                :title="`${donationModel.progressTitle} ${donationModel.donationReal}`"
+                :title="`${podcastModel.progressTitle} ${podcastModel.podcastReal}`"
                 :percentage="progressPercentage"
                 class="vk-progress"/>
         <vk-button class="help-btn" text="Помочь" @click.native="handleHelpClick"/>
@@ -18,19 +18,19 @@
             VkButton, VkProgress
         },
         props: {
-            donationModel: {
+            podcastModel: {
                 type: Object,
                 required: true
             }
         },
         computed: {
             progressPercentage() {
-                return (this.donationModel.donationReal * 100) / this.donationModel.donationAll
+                return (this.podcastModel.podcastReal * 100) / this.podcastModel.podcastAll
             }
         },
         methods: {
             handleHelpClick() {
-                this.$router.push(`/donation/${this.donationModel.id}`)
+                this.$router.push(`/podcast/${this.podcastModel.id}`)
             }
         }
     }
