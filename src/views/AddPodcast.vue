@@ -5,43 +5,48 @@
         <InputLayout
             title="Podcast title"
             placeholder="Podcast title"
-            class="w-100"
             v-model="title"
         ></InputLayout>
 
         <InputLayout
-            title="Sum in rubles"
-            placeholder="How much to collect"
-            class="w-100"
-            v-model="podcastAll"
-            type="number"
-        ></InputLayout>
-
-        <InputLayout
-            title="Goal"
-            placeholder="For example for human treatment"
-            class="w-100"
-            v-model="goal"
-        ></InputLayout>
-
-        <InputLayout
-            title="Description"
-            placeholder="What will the money go to and how will it help someone?"
+            title="Podcast Description"
+            placeholder=""
             class="w-100"
             v-model="description"
         ></InputLayout>
 
-        <InputLayout
-            title="Where to get money"
-            class="w-100"
-            v-model="bill"
-        ></InputLayout>
+        <div class="text-center mb-5 mt-4">
+            <div class="upload-title">Upload your podcast</div>
+            <div class="text-muted upload-subtitle mb-3 mt-2">
+                Select the finished audio file from your phone and add it
+            </div>
+            <CommonButton text="Upload file"></CommonButton>
+        </div>
 
-        <InputLayout
-            title="Author"
-            class="w-100"
-            v-model="author"
-        ></InputLayout>
+        <hr />
+
+        <div class="form-check my-2">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input text-muted" />
+                Inappropriate content
+            </label>
+        </div>
+
+        <div class="form-check my-2">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input text-muted" />
+                Exclude episode from export
+            </label>
+        </div>
+
+        <div class="form-check my-2">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input text-muted" />
+                Podcast Trailer
+            </label>
+        </div>
+
+        
 
         <Button
             title="Continue"
@@ -55,6 +60,7 @@
     import eventBus from "../eventBus"
     import PodcastCover from "../components/addPodcast/PodcastCover"
     import Button from "../components/common/BottomButton"
+    import CommonButton from "../components/vk-ui/VkButton"
 
     export default {
         props: { isRegular: Boolean },
@@ -62,7 +68,8 @@
         components: {
             InputLayout,
             PodcastCover,
-            Button
+            Button,
+            CommonButton
         },
         created() {
             eventBus.setPageTitle("Target podcast")
@@ -71,34 +78,23 @@
             return {
                 image: null,
                 title: null,
-                podcastAll: null,
-                goal: null,
-                description: null,
-                bill: "VK Pay · 1234",
-                author: "Den Matiash"
+                description: null
             }
         },
         methods: {
             setImage(newImage) {
                 this.image = newImage
-            },
-            addPodcast() {
-                const podcast = {
-                    title: this.title,
-                    podcastAll: this.podcastAll,
-                    podcastReal: Math.floor(this.podcastAll / 2),
-                    goal: this.goal,
-                    podcastText: this.description,
-                    subTitle: "Помощь нужна каждый день",
-                    progressTitle: 'В сентябре собрано: ',
-                    bill: this.bill,
-                    author: this.author
-                }
-
-                const image = this.image
-
-                this.$store.dispatch("uploadPodcast", { image, podcast })
             }
         }
     }
 </script>
+<style scoped>
+    .upload-title {
+        font-family: "SFProDisplay-Semibold";
+        font-size: 20px;
+    }
+    .upload-subtitle {
+        font-size: 16px;
+        font-family: "SFProText-Regular";
+    }
+</style>

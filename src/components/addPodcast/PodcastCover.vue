@@ -1,40 +1,24 @@
 <template>
-    <div>
+    <div class="d-inline">
         <input type="file" ref="file" class="d-none" @change="onFileChange" />
 
-        <span
-            class="cross-wrap position-absolute"
-            v-if="imagePath"
-            @click="imagePath = ''; $refs.file.value=''"
-        >
-            <img
-                src="../../assets/images/cross.png"
-                alt=""
-                class="cross-icon float-right w-100 h-100"
-            />
-        </span>
-
-        <div
-            class="cover"
-            @click="imagePath ? () => {} : $refs.file.click()"
-            :class="{ bordered: !imagePath }"
-        >
+        <div class="cover" @click="imagePath ? () => {} : $refs.file.click()">
             <img
                 v-if="imagePath"
                 :src="imagePath"
                 alt=""
                 class="w-100 h-100 cover-img"
             />
-            <div class="container h-100 text-center">
+            <div class="container h-100 text-center" style="padding: 12px;">
                 <div
                     class="row h-100 justify-content-center align-items-center"
                 >
                     <img
                         src="../../assets/images/image_icon.png"
                         alt=""
-                        class="img-icon mr-2"
+                        class="img-icon"
+                        v-if="imagePath == ''"
                     />
-                    <span class="cover-name">Upload cover</span>
                 </div>
             </div>
         </div>
@@ -60,39 +44,18 @@
 
 <style scoped>
     .cover {
-        height: 140px;
+        height: 72px;
+        width: 72px;
         color: #4986cc;
+        background: #f2f3f5;
+        border: 0.5px solid rgba(0, 0, 0, 0.12);
         border-radius: 10px;
-    }
-
-    .bordered {
-        border: 1.5px dashed #4986cc;
     }
 
     .cover-img {
         z-index: 100;
         object-fit: cover;
         border-radius: 10px;
-    }
-
-    .cross-wrap {
-        width: 24px;
-        height: 24px;
-        z-index: 200;
-        background: #99a2ad;
-        border: 2px solid white;
-        border-radius: 12px;
-        right: 24px;
-        top: 60px;
-    }
-
-    .cross-icon {
-        transform: scale(0.55);
-    }
-
-    .cover-name {
-        font-family: "SFProText-Medium";
-        font-size: 16px;
     }
 
     .img-icon {

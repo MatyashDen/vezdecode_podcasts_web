@@ -1,10 +1,9 @@
 <template>
     <div class="my-3">
         <div class="text-muted input-title mb-1">{{ title }}</div>
-        <input
+        <textarea
             :type="type"
             :placeholder="placeholder"
-            :value="value"
             @input="$emit('input', $event.target.value)"
         />
     </div>
@@ -16,10 +15,7 @@
             title: String,
             placeholder: String,
             value: String,
-            type: {
-                type: String,
-                default: "text"
-            }
+            height: Number
         }
     }
 </script>
@@ -30,7 +26,7 @@
         font-size: 14px;
     }
 
-    input {
+    textarea {
         background: #f2f3f5;
         border: 0.5px solid rgba(0, 0, 0, 0.12);
         padding: 12px;

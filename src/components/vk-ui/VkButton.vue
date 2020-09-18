@@ -1,7 +1,7 @@
 <template>
-    <div class="vk-button">
-        {{text}}
-    </div>
+    <span class="vk-button">
+        {{ text }}
+    </span>
 </template>
 
 <script>
@@ -14,28 +14,19 @@
 </script>
 
 <style scoped>
-.vk-button {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 0px;
+    .vk-button {
+        border-radius: 10px;
+        padding: 7.5px 16px;
+        font-size: 15px;
 
-    width: 86px;
-    height: 30px;
+        border: 1px solid #3f8ae0;
+        color: #3f8ae0;
 
-    border: 1px solid #3F8AE0;
-    color:  #3F8AE0;
+        font-family: "SFProText-Medium";
+    }
 
-    transition: .3s all;
-    font-family: "SFProText-Medium";
-    font-size: 14px;
-}
-
-.vk-button:active {
-    background: #3F8AE0;
-    color: white;
-}
+    .vk-button:active {
+        background: #3f8ae0;
+        color: white;
+    }
 </style>
