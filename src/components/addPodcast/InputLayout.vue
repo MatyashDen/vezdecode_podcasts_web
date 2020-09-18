@@ -1,5 +1,5 @@
 <template>
-    <div class="my-3">
+    <div>
         <div class="text-muted input-title mb-1">{{ title }}</div>
         <textarea
             :type="type"

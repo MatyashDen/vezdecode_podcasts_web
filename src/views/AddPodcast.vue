@@ -1,8 +1,12 @@
 <template>
     <div class="container">
-        <PodcastCover @imageChanged="setImage"></PodcastCover>
+        <PodcastCover
+            @imageChanged="setImage"
+            class=" mt-4 mr-2 float-left"
+        ></PodcastCover>
 
         <InputLayout
+            class="float-right"
             title="Podcast title"
             placeholder="Podcast title"
             v-model="title"
@@ -17,7 +21,7 @@
 
         <div class="text-center mb-5 mt-4">
             <div class="upload-title">Upload your podcast</div>
-            <div class="text-muted upload-subtitle mb-3 mt-2">
+            <div class="text-muted upload-subtitle mb-4 mt-2">
                 Select the finished audio file from your phone and add it
             </div>
             <CommonButton text="Upload file"></CommonButton>
@@ -46,8 +50,6 @@
             </label>
         </div>
 
-        
-
         <Button
             title="Continue"
             class="w-100"
@@ -72,7 +74,7 @@
             CommonButton
         },
         created() {
-            eventBus.setPageTitle("Target podcast")
+            eventBus.setPageTitle("New podcast")
         },
         data() {
             return {

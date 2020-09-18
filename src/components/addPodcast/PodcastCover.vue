@@ -1,5 +1,5 @@
 <template>
-    <div class="d-inline">
+    <div>
         <input type="file" ref="file" class="d-none" @change="onFileChange" />
 
         <div class="cover" @click="imagePath ? () => {} : $refs.file.click()">
@@ -9,7 +9,7 @@
                 alt=""
                 class="w-100 h-100 cover-img"
             />
-            <div class="container h-100 text-center" style="padding: 12px;">
+            <div class="container h-100 text-center" style="padding: 12px">
                 <div
                     class="row h-100 justify-content-center align-items-center"
                 >
